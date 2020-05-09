@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/84c461e8ae.js" crossorigin="anonymous"></script>
+        <title th:text="${'Show Student - ' + student.name + ' ' + student.lastName}">Show Student</title>
+    </head>
+    <body>
+        <div class="container">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="ListStudents.html" th:href="${'/'}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="FormStudent.html" th:href="${'/new'}">New Student</a>
+                </li>
+            </ul>
+
+            <h2 th:text="${'Student - ' + student.registrationNumber}">Student</h2>
+
+            <form>
+                <div class="form-group row">
+                    <label for="ID" class="col-sm-2 col-form-label">ID:</label>
+                    <div class="col-sm-10">
+                        <label class="form-control" id="ID" th:text="${student.registrationNumber}">ID:</label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="Name" class="col-sm-2 col-form-label">Name:</label>
+                    <div class="col-sm-10">
+                        <label class="form-control" id="Name" th:text="${student.name}">Name:</label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="LastName" class="col-sm-2 col-form-label">Last Name:</label>
+                    <div class="col-sm-10">
+                        <label class="form-control" id="LastName" th:text="${student.lastName}">Last Name:</label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="Phone" class="col-sm-2 col-form-label">Phone:</label>
+                    <div class="col-sm-10">
+                        <label class="form-control" id="Phone" th:text="${student.phone}">Phone:</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!--Bootstrap JS-->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </body>
+</html>
