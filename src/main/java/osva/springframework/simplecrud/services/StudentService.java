@@ -28,7 +28,7 @@ public class StudentService {
         studentRepository.deleteById(id);
     }
 
-    public Student getStudentById(Integer registrationNumber) {
-        return studentRepository.getStudentByRegistrationNumber(registrationNumber);
+    public Student getStudentByRegistrationNumber(Integer registrationNumber) {
+        return studentRepository.getOne(registrationNumber);
     }
 }

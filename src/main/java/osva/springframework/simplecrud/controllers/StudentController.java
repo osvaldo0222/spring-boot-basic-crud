@@ -28,13 +28,13 @@ public class StudentController {
 
     @RequestMapping("/view/{registrationNumber}")
     public String listStudents(@PathVariable Integer registrationNumber, Model model) {
-        model.addAttribute("student", studentService.getStudentById(registrationNumber));
+        model.addAttribute("student", studentService.getStudentByRegistrationNumber(registrationNumber));
         return "students/ViewStudent";
     }
 
     @RequestMapping("/edit/{registrationNumber}")
     public String editStudents(@PathVariable Integer registrationNumber, Model model) {
-        model.addAttribute("student", studentService.getStudentById(registrationNumber));
+        model.addAttribute("student", studentService.getStudentByRegistrationNumber(registrationNumber));
         return "students/FormStudent";
     }
 
