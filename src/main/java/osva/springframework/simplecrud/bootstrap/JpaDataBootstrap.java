@@ -29,7 +29,7 @@ public class JpaDataBootstrap implements ApplicationListener<ContextRefreshedEve
             student.setName("Student ");
             student.setLastName(String.valueOf(i + 1));
             student.setPhone("809-678-123" + i);
-
+            student.setEmail("student" + (i + 1) + "@gmail.com");
             studentService.saveOrUpdateStudent(student);
         }
     }

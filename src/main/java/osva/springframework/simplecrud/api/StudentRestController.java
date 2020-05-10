@@ -1,10 +1,12 @@
 package osva.springframework.simplecrud.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import osva.springframework.simplecrud.models.Student;
 import osva.springframework.simplecrud.services.StudentService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -29,7 +31,13 @@ public class StudentRestController {
     }
 
     @PutMapping("/student/save")
-    public Student saveStudent(@RequestBody Student student) {
-        return studentService.saveOrUpdateStudent(student);
+    public ResponseEntity<Student> saveStudent(@Valid @RequestBody Student student) {
+        return ResponseEntity.ok(studentService.saveOrUpdateStudent(student));
+    }
+
+    @DeleteMapping("/student/delete")
+    public ResponseEntity<String> deleteStudent(@RequestParam(name = "registration") Integer registrationNumber) {
+        studentService.deleteStudent(registrationNumber);
+        return ResponseEntity.ok("Student deleted!");
     }
 }

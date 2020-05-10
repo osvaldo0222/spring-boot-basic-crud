@@ -3,11 +3,14 @@ package osva.springframework.simplecrud.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import osva.springframework.simplecrud.models.Student;
 import osva.springframework.simplecrud.services.StudentService;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping(value = {"/", ""})
@@ -45,7 +48,10 @@ public class StudentController {
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String saveStudent(Student student) {
+    public String saveStudent(@Valid Student student, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "/students/FormStudent";
+        }
         Student savedStudent = studentService.saveOrUpdateStudent(student);
         return "redirect:/view/" + savedStudent.getRegistrationNumber();
     }
