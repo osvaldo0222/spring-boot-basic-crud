@@ -1,6 +1,7 @@
-package osva.springframework.simplecrud.entities;
+package osva.springframework.simplecrud.models;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 public class Student {

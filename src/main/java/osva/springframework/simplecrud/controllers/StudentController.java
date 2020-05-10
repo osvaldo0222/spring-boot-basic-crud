@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import osva.springframework.simplecrud.entities.Student;
+import osva.springframework.simplecrud.models.Student;
 import osva.springframework.simplecrud.services.StudentService;
 
 @Controller
@@ -23,25 +23,25 @@ public class StudentController {
     @RequestMapping(value = {"/list", "", "/"})
     public String listStudents(Model model) {
         model.addAttribute("students", studentService.listStudents());
-        return "students/ListStudents";
+        return "/students/ListStudents";
     }
 
     @RequestMapping("/view/{registrationNumber}")
     public String listStudents(@PathVariable Integer registrationNumber, Model model) {
         model.addAttribute("student", studentService.getStudentByRegistrationNumber(registrationNumber));
-        return "students/ViewStudent";
+        return "/students/ViewStudent";
     }
 
     @RequestMapping("/edit/{registrationNumber}")
     public String editStudents(@PathVariable Integer registrationNumber, Model model) {
         model.addAttribute("student", studentService.getStudentByRegistrationNumber(registrationNumber));
-        return "students/FormStudent";
+        return "/students/FormStudent";
     }
 
     @RequestMapping("/new")
     public String newStudent(Model model) {
         model.addAttribute("student", new Student());
-        return "students/FormStudent";
+        return "/students/FormStudent";
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)

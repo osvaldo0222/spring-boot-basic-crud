@@ -2,7 +2,7 @@ package osva.springframework.simplecrud.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import osva.springframework.simplecrud.entities.Student;
+import osva.springframework.simplecrud.models.Student;
 import osva.springframework.simplecrud.repositories.StudentRepository;
 
 import java.util.List;
@@ -29,6 +29,6 @@ public class StudentService {
     }
 
     public Student getStudentByRegistrationNumber(Integer registrationNumber) {
-        return studentRepository.getOne(registrationNumber);
+        return studentRepository.findById(registrationNumber).get();
     }
 }
